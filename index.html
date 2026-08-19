@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>București → Istanbul → Thassos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section id="start-screen" class="start-screen">
+  <div class="start-content">
+    <h1 class="start-title">București → Istanbul → Thassos</h1>
+    <p class="start-dates">22&ndash;29 august 2026</p>
+    <p class="start-names">Mădălin &middot; Alina &middot; Bianca</p>
+    <button id="enter-btn" class="btn-enter" type="button">Intră</button>
+  </div>
+</section>
+
+<div id="app" class="app hidden">
+  <header class="topbar">
+    <span class="topbar-title">IST &rarr; THA 2026</span>
+    <button id="home-btn" class="btn-home" type="button">Acasă</button>
+  </header>
+
+  <section id="home-view" class="home-view">
+    <div id="trip-story" class="trip-story">
+      <!-- povestea se randează din data.js -->
+    </div>
+
+    <div id="profiles-grid-home" class="profiles-grid">
+      <!-- cele 3 profiluri se randează din data.js -->
+    </div>
+
+    <nav class="nav-cards">
+      <button class="nav-card" type="button" data-view="drum">
+        <span class="nav-card-title">Drum</span>
+        <span class="nav-card-sub">București &middot; Istanbul &middot; Thassos, cu mașina</span>
+      </button>
+      <button class="nav-card" type="button" data-view="istanbul">
+        <span class="nav-card-title">Istanbul</span>
+        <span class="nav-card-sub">Sultanahmet &middot; Galata &middot; Balat &amp; Bosfor</span>
+      </button>
+      <button class="nav-card" type="button" data-view="thassos">
+        <span class="nav-card-title">Thassos</span>
+        <span class="nav-card-sub">Bucla sud-est &middot; Bucla nord-vest</span>
+      </button>
+    </nav>
+  </section>
+
+  <main id="view-drum" class="itinerary hidden"></main>
+
+  <main id="view-istanbul" class="itinerary hidden">
+    <div class="zone-hero zone-hero-istanbul">
+      <svg class="zone-hero-pattern" viewBox="0 0 120 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="iznik-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M10 0 L20 10 L10 20 L0 10 Z" fill="none" stroke="#fff" stroke-width="0.6" opacity="0.4"/>
+            <circle cx="10" cy="10" r="3.2" fill="none" stroke="#fff" stroke-width="0.5" opacity="0.4"/>
+          </pattern>
+        </defs>
+        <rect width="120" height="120" fill="url(#iznik-pattern)"/>
+      </svg>
+      <svg class="zone-hero-skyline" viewBox="0 0 400 90" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,90 L0,55 L20,55 L20,40 C20,30 30,30 30,40 L30,55 L45,55 L45,25 L50,15 L55,25 L55,55 L70,55 L70,45 C70,35 82,35 82,45 L82,55 L100,55 L100,30 L108,18 L116,30 L116,55 L140,55 L140,50 C140,42 150,42 150,50 L150,55 L175,55 L175,20 L182,8 L189,20 L189,55 L210,55 L210,48 C210,40 220,40 220,48 L220,55 L245,55 L245,15 L253,3 L261,15 L261,55 L285,55 L285,45 C285,37 295,37 295,45 L295,55 L320,55 L320,35 L328,22 L336,35 L336,55 L360,55 L360,50 C360,42 370,42 370,50 L370,55 L400,55 L400,90 Z" fill="rgba(29,43,54,0.35)"/>
+      </svg>
+      <h2 class="zone-hero-title">Istanbul</h2>
+    </div>
+  </main>
+
+  <main id="view-thassos" class="itinerary hidden">
+    <div class="zone-hero zone-hero-thassos">
+      <svg class="zone-hero-sun" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="78" cy="26" r="14" fill="#D4A24C" opacity="0.85"/>
+      </svg>
+      <svg class="zone-hero-waves" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,70 C50,100 100,40 150,70 C200,100 250,40 300,70 C350,100 400,40 400,70 L400,120 L0,120 Z" fill="rgba(255,255,255,0.18)"/>
+        <path d="M0,90 C50,120 100,60 150,90 C200,120 250,60 300,90 C350,120 400,60 400,90 L400,120 L0,120 Z" fill="rgba(255,255,255,0.28)"/>
+      </svg>
+      <h2 class="zone-hero-title">Thassos</h2>
+    </div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
