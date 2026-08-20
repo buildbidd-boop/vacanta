@@ -25,7 +25,7 @@ const TRIP_DAYS = [
     stops: [
       {
         order: 1,
-        time: null,
+        time: "01:00",
         title: "Plecare — București, Berceni",
         detail: "Start traseu.",
         lat: 44.359699982039075,
@@ -33,31 +33,31 @@ const TRIP_DAYS = [
       },
       {
         order: 2,
-        time: null,
+        time: "02:12", // calculat: 01:00 + 1h12min
         title: "Oprire — alimentare",
-        detail: "73 km · 1h12min de la plecare. Pauză ~20 min.",
+        detail: "73 km · 1h12min de la plecare. Pauză ~20 min (plecare estimată 02:32).",
         lat: 43.83143432762293,
         lng: 25.975398351229284
       },
       {
         order: 3,
-        time: null,
+        time: "05:53", // calculat: 02:32 (după pauză) + 3h21min
         title: "A doua oprire",
-        detail: "232 km · 3h21min de la oprirea anterioară. Pauză ~20 min.",
+        detail: "232 km · 3h21min de la oprirea anterioară. Pauză ~20 min (plecare estimată 06:13).",
         lat: 42.49121673663703,
         lng: 26.557673744140338
       },
       {
         order: 4,
-        time: null,
+        time: "08:54", // calculat: 06:13 (după pauză) + 2h41min — NU include vama
         title: "A treia oprire — alimentare",
-        detail: "210 km · 2h41min de la oprirea anterioară. Include trecerea vămii BG → TR (durată variabilă, neinclusă). Pauză ~20 min.",
+        detail: "210 km · 2h41min de la oprirea anterioară. Include trecerea vămii BG → TR (durată variabilă, neinclusă în oră — poate ajungi mai târziu). Pauză ~20 min (plecare estimată 09:14).",
         lat: 41.29728704393528,
         lng: 27.75518349869076
       },
       {
         order: 5,
-        time: null,
+        time: "10:38", // calculat: 09:14 (după pauză) + 1h24min
         title: "Sosire Istanbul — 9 Doors Hotel, Sultanahmet",
         detail: "123 km · 1h24min de la oprirea anterioară. Parcarea NU e inclusă (10–15 €/zi).",
         lat: 41.00349466022244,
@@ -249,7 +249,7 @@ const TRIP_DAYS = [
     stops: [
       {
         order: 1,
-        time: null, // TODO: ora exactă de plecare ("după micul dejun" în brief)
+        time: "07:50",
         title: "Plecare — Istanbul, 9 Doors Hotel",
         detail: "Plecare după micul dejun.",
         lat: 41.00349466022244,
@@ -257,7 +257,7 @@ const TRIP_DAYS = [
       },
       {
         order: 2,
-        time: null,
+        time: "11:05", // calculat: 07:50 + 3h15min
         title: "Oprire Turcia",
         detail: "249 km · 3h15min de la plecare.",
         lat: 40.86655042429408,
@@ -265,9 +265,9 @@ const TRIP_DAYS = [
       },
       {
         order: 3,
-        time: null,
+        time: "13:43", // calculat: 11:05 + 2h38min — NU include așteptarea la vamă (variabilă, necunoscută)
         title: "Keramoti — ferry dock",
-        detail: "192 km · 2h38min de la oprirea anterioară. Include trecerea vămii TR → GR (durată variabilă, neinclusă).",
+        detail: "192 km · 2h38min de la oprirea anterioară. Include trecerea vămii TR → GR (durată variabilă, neinclusă în oră — poate ajungi mai târziu).",
         lat: 40.85717051850721,
         lng: 24.70277617852847
       },
@@ -281,7 +281,7 @@ const TRIP_DAYS = [
       },
       {
         order: 5,
-        time: null,
+        time: "15:44", // calculat: 13:43 + 2h01min — vezi nota despre vamă la punctul anterior
         title: "Sosire cazare — Villa Lithi, Limenaria",
         detail: "51 km · 2h01min de la Keramoti — notat ca incluzând traversarea cu feribotul (de verificat).",
         lat: 40.63131846606661,
@@ -426,8 +426,32 @@ const TRIP_DAYS = [
       {
         order: 3,
         time: null,
+        title: "Oprire — alimentare (Xanthi, Grecia)",
+        detail: "TODO: km și durată — rută estimată, de confirmat.",
+        lat: 41.1353,
+        lng: 24.8883 // de verificat — traseu estimat, nu e traseul real trimis
+      },
+      {
+        order: 4,
+        time: null,
+        title: "Oprire — alimentare (Kardzhali, Bulgaria)",
+        detail: "TODO: km și durată — rută estimată, de confirmat. Include trecerea vămii GR → BG (durată variabilă, neinclusă), probabil pe la Makaza.",
+        lat: 41.6500,
+        lng: 25.3800 // de verificat — traseu estimat, nu e traseul real trimis
+      },
+      {
+        order: 5,
+        time: null,
+        title: "Oprire — alimentare (Veliko Tarnovo, Bulgaria)",
+        detail: "TODO: km și durată — rută estimată, de confirmat.",
+        lat: 43.0757,
+        lng: 25.6172 // de verificat — traseu estimat, nu e traseul real trimis
+      },
+      {
+        order: 6,
+        time: null,
         title: "Sosire — București, Berceni",
-        detail: "TODO: km și durată — ruta de întoarcere nu a fost încă trimisă (poate diferi de cea de tur).",
+        detail: "TODO: km și durată de la ultima oprire — rută estimată, de confirmat. Include trecerea vămii BG → RO (probabil Ruse–Giurgiu).",
         lat: 44.359699982039075,
         lng: 26.15083627478914
       }
